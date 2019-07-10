@@ -19,43 +19,47 @@ form {
 	border: 3px solid #f1f1f1;
 }
 
+/* Set form container style */
+.container {
+	position: absolute;
+	right: 20px;
+	margin: 20px;
+	max-width: 300px;
+	padding: 16px;
+	background-color: white;
+}
+
 /* Full-width inputs */
 input[type=text], input[type=password] {
 	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
 }
 
 /* Style for all buttons */
 button {
 	background-color: #4CAF50;
 	color: white;
-	padding: 14px 20px;
+	padding: 15px 20px;
 	margin: 8px 0;
 	border: none;
 	cursor: pointer;
 	width: 100%;
+	opacity: 0.9;
 }
 
 /* Add a hand hover effect for buttons */
 button:hover {
-	opacity: 0.8;
+	opacity: 1;
 }
 
-/* Add padding to containers */
-.container {
-	padding: 20px;
-}
 
-span.psw {
-	float: right;
-/*	padding-top: 16px;*/
-}
 
-span.signup {
-	float: left;
-/*	padding-top: 16px;*/
-}
+
+
+
+
+
+
