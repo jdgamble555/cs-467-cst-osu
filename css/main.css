@@ -15,14 +15,16 @@ h1 {
 	padding-bottom: 35px;
 }
 
+/* Keep header style for all headers with hyperlink */
+h1 a {
+	color: black;
+	text-decoration: none;
+}
+
 h2 {
 	margin-top: 5%;
 	margin-bottom: 3%;
 	text-align: center;
-}
-
-form {
-	border: 3px solid #f1f1f1;
 }
 
 /* Set form container style */
@@ -61,52 +63,36 @@ button:hover {
 	opacity: 1;
 }
 
-#sc-password {
-  background: #f0f0f0;
-  width: 400px;
-  margin: 0 auto;
-  margin-top: 8px;
-  margin-bottom: 2%;
-  transition: opacity 1s;
-  -webkit-transition: opacity 1s;
+/* Style for cancel button */
+.cancelbtn {
+	padding: 15px 20px;
+	background-color: #f44336;
 }
 
-div#sc-password .sc-container {
-  background: #f0f0f0;
-  padding: 6% 4%;
+/* Float cancel and signup buttons with equal width */
+.cancelbtn, .signupbtn {
+	margin-top: 5%;
+	float: left;
+	width: 45%;
+	margin: 10px;
 }
 
-div#sc-password input[type="email"],
-div#sc-password input[type="text"],
-div#sc-password input[type="password"] {
-  width: 92%;
-  background: #fff;
-  margin-bottom: 4%;
-  border: 1px solid #ccc;
-  padding: 4%;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 95%;
-  color: #555;
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
 }
 
-div#sc-password input[type="submit"] {
-  width: 100%;
-  background: #3399cc;
-  border: 0;
-  padding: 4%;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 100%;
-  color: #fff;
-  cursor: pointer;
-  transition: background .3s;
-  -webkit-transition: background .3s;
+/* Password Reset page style */
+#pwr_container, #signup_container {
+  	width: 400px;
+  	margin: 0 auto;
+  	margin-top: 15px;
+  	margin-bottom: 2%;
+  	transition: opacity 1s;
+  	-webkit-transition: opacity 1s;
 }
-
-div#sc-password input[type="submit"]:hover {
-  background: #2288bb;
-}
-
-
 
 
 
