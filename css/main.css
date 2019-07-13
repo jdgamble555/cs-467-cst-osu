@@ -63,6 +63,28 @@ button:hover {
 	opacity: 1;
 }
 
+/* Extra style for btn_group */
+.btn_group .button {
+	padding: 30px 32px;
+	text-align: center;
+	font-family: Times;
+	font-size: 20px;
+	width: 50%;
+	display: block;
+	margin: 30px auto;
+	border-radius: 15px;
+}
+
+/* Extra style for btn_group hyperlink */
+.btn_group a {
+	color: white;
+	text-decoration: none;
+}
+
+div.btn_group {
+	padding: 5%;
+}
+
 /* Style for cancel button */
 .cancelbtn {
 	padding: 15px 20px;
