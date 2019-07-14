@@ -5,7 +5,7 @@
 
 <head>
     <title>Employee Recognition</title>
-    <link rel="stylesheet" type="text/css" href="./main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
 </head>
 
 <!-- the body section -->
