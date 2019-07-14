@@ -200,7 +200,7 @@ div.btn_group {
 }
 
 /* Float cancel and signup buttons with equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn, .signupbtn, .savebtn, .emailbtn {
 	margin-top: 5%;
 	float: left;
 	width: 45%;
@@ -215,7 +215,7 @@ div.btn_group {
 }
 
 /* Password Reset page style */
-#pwr_container, #signup_container {
+#pwr_container, #signup_container, #myAccount_container, #awardEntry_container {
   	width: 400px;
   	margin: 0 auto;
   	margin-top: 15px;
