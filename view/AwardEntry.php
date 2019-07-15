@@ -24,16 +24,16 @@
             <label for="name"><b>Award Receiver Name</b></label>
             <input type="text" name="name" required>
 
-            <label for="awardType"><b>Type of Award</b></label>
+            <label for="awardType"><b>Award Type</b></label>
             <input type="text" name="awardType" required>
             
             <label for="email"><b>Award Receiver Email</b></label>
             <input type="text" name="email" required>
 
-                <div class="clearfix">
-                    <button type="reset" class="cancelbtn">Cancel</button>
-                    <button type="submit" class="emailbtn">Email Award</button>
-                </div>
+            <div class="clearfix">
+                <button type="reset" class="cancelbtn">Cancel</button>
+                <button type="submit" class="emailbtn">Email Award</button>
+            </div>
         </div>
     </form>
     <br><br><br><br><br><br>
