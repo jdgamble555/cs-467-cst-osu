@@ -192,7 +192,7 @@ div.btn_group {
 }
 
 /* Style for cancel button */
-.cancelbtn {
+.cancelbtn, .deletebtn {
 	padding: 15px 20px;
   background-color: #f44336;
 	color: white;
@@ -204,7 +204,7 @@ div.btn_group {
 }
 
 /* Float cancel and signup buttons with equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn, .signupbtn, .savebtn, .emailbtn, {
 	margin-top: 5%;
 	float: left;
 	width: 45%;
@@ -219,7 +219,11 @@ div.btn_group {
 }
 
 /* Password Reset page style */
+<<<<<<< HEAD
 #pwr_container, #signup_container, #login_container {
+=======
+#pwr_container, #signup_container, #myAccount_container, #awardEntry_container, #report_container, #userList_container {
+>>>>>>> f3460abebc8e00b8abed085f87bcd64fdaebd18a
   	width: 400px;
   	margin: 0 auto;
   	margin-top: 15px;
@@ -227,3 +231,31 @@ div.btn_group {
   	transition: opacity 1s;
   	-webkit-transition: opacity 1s;
 }
+
+/* Table style */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #e6f2ff;
+}
+
+
+
+
+
+
+
+
+
+
+
