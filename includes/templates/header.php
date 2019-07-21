@@ -18,14 +18,14 @@ if (!isset($page_title)) {
 <head>
 	<meta charset="utf-8">
 	<title><?php echo $page_title; ?></title>
-	<link rel="stylesheet" type="text/css" href="includes/layout.css">
-	<link rel="icon" href="img/star_logo.jpg" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="./includes/layout.css">
+	<link rel="icon" href="./img/star_logo.jpg" type="image/x-icon">
 </head>
 
 <body>
 	<div class="header">
 		<img src="img/star_logo.jpg" alt="logo">
-		<h1><a href="Login.html">Employee Recognition</a></h1>
+		<h1><a href="index.php">Employee Recognition</a></h1>
 	</div>
 	<div id="Content">
 		<!-- End of Header -->
