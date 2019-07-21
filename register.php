@@ -77,92 +77,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 			} else { // If it did not run OK.
 				echo '<p class="error">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 			}
-
 		} else { // The email address is not available.
 			echo '<p class="error">That email address has already been registered. If you have forgotten your password, use the link at right to have your password sent to you.</p>';
 		}
-
 	} else { // If one of the data tests failed.
 		echo '<p class="error">Please try again.</p>';
 	}
 
 	mysqli_close($dbc);
-
 } // End of the main Submit conditional.
 ?>
 
-<h1>Register</h1>
+<h2>Sign Up</h2>
 <form action="register.php" method="post">
-	<fieldset>
+	<div id="signup_container">
+		<p>Please fill in this form to create an account.</p>
+		<p><strong>First Name:</strong> <input type="text" placeholder="Enter First Name" name="first_name" size="20" maxlength="20" value="<?php if (isset($trimmed['first_name'])) echo $trimmed['first_name']; ?>"></p>
 
-	<p><strong>First Name:</strong> <input type="text" name="first_name" size="20" maxlength="20" value="<?php if (isset($trimmed['first_name'])) echo $trimmed['first_name']; ?>"></p>
+		<p><strong>Last Name:</strong> <input type="text" placeholder="Enter Last Name" name="last_name" size="20" maxlength="40" value="<?php if (isset($trimmed['last_name'])) echo $trimmed['last_name']; ?>"></p>
 
-	<p><strong>Last Name:</strong> <input type="text" name="last_name" size="20" maxlength="40" value="<?php if (isset($trimmed['last_name'])) echo $trimmed['last_name']; ?>"></p>
+		<p><strong>Email Address:</strong> <input type="email" placeholder="Enter Email" name="email" size="30" maxlength="60" value="<?php if (isset($trimmed['email'])) echo $trimmed['email']; ?>"> </p>
 
-	<p><strong>Email Address:</strong> <input type="email" name="email" size="30" maxlength="60" value="<?php if (isset($trimmed['email'])) echo $trimmed['email']; ?>"> </p>
+		<p><strong>Password:</strong> <input type="password" placeholder="Enter Password" name="password1" size="20" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>"> </p>
 
-	<p><strong>Password:</strong> <input type="password" name="password1" size="20" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>"> <small>At least 10 characters long.</small></p>
-
-	<p><strong>Confirm Password:</strong> <input type="password" name="password2" size="20" value="<?php if (isset($trimmed['password2'])) echo $trimmed['password2']; ?>"></p>
-	</fieldset>
-
-	<div align="center"><input type="submit" name="submit" value="Register"></div>
+		<p><strong>Confirm Password:</strong> <input type="password" placeholder="Repeat Password" name="password2" size="20" value="<?php if (isset($trimmed['password2'])) echo $trimmed['password2']; ?>"></p>
+		
+		<label for="signature"><b>Please upload a file of your signature:</b></label>
+		<input type="file" name="datafile" size="40" required><br><br><br>
+		
+		<div class="clearfix">
+			<input type="reset" class="cancelbtn" value="Cancel">
+			<input type="submit" name="submit" value="Sign Up">
+		</div>
+	</div>
 
 </form>
 
 <?php include('includes/footer.html'); ?>
-
-
-<!-- this is the new content that needs to be added... -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>CS467 Capstone Project</title>
-    <!-- add icon link -->
-    <link rel="icon" href="../img/star_logo.jpg" type="image/x-icon">
-    
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-</head>
-
-<body>
-<!--     Comment     -->   
-    <div class="header">
-        <img src="../img/star_logo.jpg" alt="logo"> 
-        <h1><a href="Login.html">EXCELLENT JOB</a></h1>
-    </div>
-
-    <h2>Sign Up</h2> 
-
-    <!--     User Sign Up Content     --> 
-    <form action="signup.php">
-        <div id="signup_container">
-            <p>Please fill in this form to create an account.</p>
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" placeholder="Enter Your Full Name" name="name" required>
-            
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-            <label for="signature"><b>Please upload a file of your signature:</b></label>
-            <input type="file" name="datafile" size="40" required><br><br><br>
-
-            <input type="checkbox" checked="checked" name="remember">Remember Me</label>
-
-                <div class="clearfix">
-                    <button type="reset" class="cancelbtn">Cancel</button>
-                    <button type="submit" class="signupbtn">Sign Up</button>
-                </div>
-        </div>
-    </form>
-    <br><br><br><br><br><br>
-
-</body>
-</html>

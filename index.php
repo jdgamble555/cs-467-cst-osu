@@ -15,10 +15,15 @@ if (isset($_SESSION['first_name'])) {
 }
 echo '!</h1>';
 
-if ($_SESSION['user_level'] == 0) {
-    include('includes/regular_landing.php');
-} else {
-    include('includes/admin_landing.php');
+// see if logged in
+if (isset($_SESSION['user_level'])) {
+    
+    // check user level
+    if ($_SESSION['user_level'] == 0) {
+        include('includes/regular_landing.php');
+    } else {
+        include('includes/admin_landing.php');
+    }
 }
 
 ?>

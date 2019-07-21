@@ -138,15 +138,14 @@ h2 {
 /* Set form container style */
 .container {
 	position: absolute;
-	right: 20px;
-	margin: 20px;
+	margin: 0 auto;
 	max-width: 300px;
 	padding: 16px;
 	background-color: white;
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
 	width: 100%;
 	padding: 15px;
 	margin: 5px 0 22px 0;
@@ -155,7 +154,7 @@ input[type=text], input[type=password] {
 }
 
 /* Style for all buttons */
-button {
+button, input[type=submit] {
 	background-color: #4CAF50;
 	color: white;
 	padding: 15px 20px;
@@ -172,13 +171,12 @@ button:hover {
 }
 
 /* Extra style for btn_group */
-.btn_group .button {
+.btn_group .button, input[type=submit], input[type=reset] {
 	padding: 30px 32px;
 	text-align: center;
 	font-family: Times;
 	font-size: 20px;
 	width: 50%;
-	display: block;
 	margin: 30px auto;
 	border-radius: 15px;
 }
@@ -196,7 +194,13 @@ div.btn_group {
 /* Style for cancel button */
 .cancelbtn {
 	padding: 15px 20px;
-	background-color: #f44336;
+  background-color: #f44336;
+	color: white;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+  opacity: 0.9;
 }
 
 /* Float cancel and signup buttons with equal width */
@@ -215,7 +219,7 @@ div.btn_group {
 }
 
 /* Password Reset page style */
-#pwr_container, #signup_container {
+#pwr_container, #signup_container, #login_container {
   	width: 400px;
   	margin: 0 auto;
   	margin-top: 15px;
