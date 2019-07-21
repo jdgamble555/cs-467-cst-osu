@@ -2,7 +2,7 @@
 // This page allows a user to reset their password, if forgotten.
 require('includes/config.inc.php');
 $page_title = 'Forgot Your Password';
-include('includes/header.html');
+include('includes/templates/header.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require(MYSQL);
@@ -59,15 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } // End of the main Submit conditional.
 ?>
 
-<h2>Forgot My Password</h2>
-<form action="forgot_password.php" method="post">
-	<div id="pwr_container">
-		<p>Please enter your email address associated with your account. We'll send you a link to reset your password.</p>
-		<div class="pwr-email">
-			<p><input type="email" name="email" placeholder="Please Enter Email" size="20" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" required></p>
-			<div align="center"><input type="submit" name="submit" value="Reset Password"></div>
-		</div>
-	</div>
-</form>
+<?php include('includes/templates/forgot_password.php'); ?>
 
-<?php include('includes/footer.html'); ?>
+<?php include('includes/templates/footer.php'); ?>

@@ -5,27 +5,30 @@
 require('includes/config.inc.php');
 
 // Set the page title and include the HTML header:
-$page_title = 'Welcome to this Site!';
-include('includes/header.html');
+$page_title = 'Employee Recognition';
+include('includes/templates/header.php');
 
 // Welcome the user (by name if they are logged in):
-echo '<h1>Welcome';
+echo '<h2>Welcome';
 if (isset($_SESSION['first_name'])) {
     echo ", {$_SESSION['first_name']}";
 }
-echo '!</h1>';
+echo '!</h2>';
 
 // see if logged in
 if (isset($_SESSION['user_level'])) {
     
     // check user level
     if ($_SESSION['user_level'] == 0) {
-        include('includes/regular_landing.php');
+        include('includes/templates/regular_landing.php');
     } else {
-        include('includes/admin_landing.php');
+        include('includes/templates/admin_landing.php');
     }
+}
+else {
+    include('includes/templates/main_page.php');
 }
 
 ?>
 
-<?php include('includes/footer.html'); ?>
+<?php include('includes/templates/footer.php'); ?>

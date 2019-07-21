@@ -2,7 +2,7 @@
 // This is the logout page for the site.
 require('includes/config.inc.php');
 $page_title = 'Logout';
-include('includes/header.html');
+include('includes/templates/header.php');
 
 // If no first_name session variable exists, redirect the user:
 if (!isset($_SESSION['first_name'])) {
@@ -21,7 +21,7 @@ if (!isset($_SESSION['first_name'])) {
 }
 
 // Print a customized message:
-echo '<h3>You are now logged out.</h3>';
+echo '<div class="container"><h3>You are now logged out.</h3></div>';
 
-include('includes/footer.html');
+include('includes/templates/footer.php');
 ?>

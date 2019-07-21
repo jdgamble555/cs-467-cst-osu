@@ -2,7 +2,7 @@
 // This page allows a logged-in user to change their password.
 require('includes/config.inc.php');
 $page_title = 'Change Your Password';
-include('includes/header.html');
+include('includes/templates/header.php');
 
 // If no user_id session variable exists, redirect the user:
 if (!isset($_SESSION['user_id'])) {
@@ -57,13 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } // End of the main Submit conditional.
 ?>
 
-<h1>Change Your Password</h1>
-<form action="change_password.php" method="post">
-	<fieldset>
-	<p><strong>New Password:</strong> <input type="password" name="password1" size="20"> <small>At least 10 characters long.</small></p>
-	<p><strong>Confirm New Password:</strong> <input type="password" name="password2" size="20"></p>
-	</fieldset>
-	<div align="center"><input type="submit" name="submit" value="Change My Password"></div>
-</form>
+<?php include('includes/templates/change_password.php'); ?>
 
-<?php include('includes/footer.html'); ?>
+<?php include('includes/templates/footer.php'); ?>

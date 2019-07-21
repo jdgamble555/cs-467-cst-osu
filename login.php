@@ -2,7 +2,7 @@
 // This is the login page for the site.
 require('includes/config.inc.php');
 $page_title = 'Login';
-include('includes/header.html');
+include('includes/templates/header.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require(MYSQL);
@@ -65,25 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } // End of SUBMIT conditional.
 ?>
 
-<h1>Login</h1>
-<p>Your browser must allow cookies in order to log in.</p>
-<form action="login.php" method="post">
-	<!--     User Log In     -->
-	<div id="login_container">
-		<label for="email"><b>Email Address</b></label>
-		<input type="text" placeholder="Enter Email" name="email" size="20" maxlength="60" required>
+<?php include('includes/templates/login.php'); ?>
 
-		<label for="pass"><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="pass" size="20" required>
-
-		<input type="submit" name="submit" value="Sign in">
-
-		<!--     User Forgot Password     -->
-		<p class="psw"><a href="forgot_password.php">Forgot password?</a></p>
-
-		<!--     New User Sign Up     -->
-		<p class="signup">Not enrolled?<a href="register.php"> Sign up now.</a></p>
-	</div>
-</form>
-
-<?php include('includes/footer.html'); ?>
+<?php include('includes/templates/footer.php'); ?>

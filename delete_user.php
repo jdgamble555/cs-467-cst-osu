@@ -3,8 +3,8 @@
 // This page is accessed through view_users.php.
 
 $page_title = 'Delete a User';
-include('includes/header.html');
-echo '<h1>Delete a User</h1>';
+include('includes/templates/header.php');
+echo '<h2>Delete a User</h2>';
 
 // Check for a valid user ID, through GET or POST:
 if ( (isset($_GET['id'])) && (is_numeric($_GET['id'])) ) { // From view_users.php
@@ -13,7 +13,7 @@ if ( (isset($_GET['id'])) && (is_numeric($_GET['id'])) ) { // From view_users.ph
 	$id = $_POST['id'];
 } else { // No valid ID, kill the script.
 	echo '<p class="error">This page has been accessed in error.</p>';
-	include('includes/footer.html');
+	include('includes/templates/footer.php');
 	exit();
 }
 
@@ -52,17 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// Get the user's information:
 		$row = mysqli_fetch_array($r, MYSQLI_NUM);
 
-		// Display the record being deleted:
-		echo "<h3>Name: $row[0]</h3>
-		Are you sure you want to delete this user?";
-
 		// Create the form:
-		echo '<form action="delete_user.php" method="post">
-	<input type="radio" name="sure" value="Yes"> Yes
-	<input type="radio" name="sure" value="No" checked="checked"> No
-	<input type="submit" name="submit" value="Submit">
-	<input type="hidden" name="id" value="' . $id . '">
-	</form>';
+		include('includes/templates/delete_user.php');
 
 	} else { // Not a valid user ID.
 		echo '<p class="error">This page has been accessed in error.</p>';
@@ -72,5 +63,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 mysqli_close($dbc);
 
-include('includes/footer.html');
+include('includes/templates/footer.php');
 ?>
