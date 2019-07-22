@@ -18,7 +18,7 @@ define('LIVE', FALSE);
 define('EMAIL', 'gambljon@oregonstate.edu');
 
 // Site URL (base for all redirections):
-define('BASE_URL', 'http://localhost:3000/');
+define('BASE_URL', 'https://employee-recognition.000webhostapp.com/');
 
 // Location of the MySQL connection script:
 define('MYSQL', './mysqli_connect.php');
@@ -56,6 +56,7 @@ function my_error_handler($e_number, $e_message, $e_file, $e_line, $e_vars) {
 
 		// Send an email to the admin:
 		$body = $message . "\n" . print_r ($e_vars, 1);
+		ini_set('SMTP', 'smtp.science.oregonstate.edu');
 		mail(EMAIL, 'Site Error!', $body, 'From: email@example.com');
 
 		// Only print an error message if the error isn't a notice:
