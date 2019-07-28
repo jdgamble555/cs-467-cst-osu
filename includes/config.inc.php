@@ -18,7 +18,8 @@ define('LIVE', FALSE);
 define('EMAIL', 'gambljon@oregonstate.edu');
 
 // Site URL (base for all redirections):
-define('BASE_URL', 'https://employee-recognition.000webhostapp.com/');
+#define('BASE_URL', 'https://employee-recognition.000webhostapp.com/');
+define('BASE_URL', '/');
 
 // Location of the MySQL connection script:
 define('MYSQL', './mysqli_connect.php');
