@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$_SESSION['user_level'] = $user_level;
 				mysqli_close($dbc);
 
-				// Redirect the user:
 				$url = BASE_URL . 'index.php'; // Define the URL.
+
 				ob_end_clean(); // Delete the buffer.
 				header("Location: $url");
 				exit(); // Quit the script.

@@ -19,7 +19,12 @@ define('EMAIL', 'gambljon@oregonstate.edu');
 
 // Site URL (base for all redirections):
 #define('BASE_URL', 'https://employee-recognition.000webhostapp.com/');
-define('BASE_URL', '/');
+// Redirect the user:
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$url = 'http://' . $host . $uri . '/';
+
+define('BASE_URL', $url);
 
 // Location of the MySQL connection script:
 define('MYSQL', './mysqli_connect.php');
@@ -35,7 +40,8 @@ date_default_timezone_set('America/Chicago');
 // ************ ERROR MANAGEMENT ************ //
 
 // Create the error handler:
-function my_error_handler($e_number, $e_message, $e_file, $e_line, $e_vars) {
+function my_error_handler($e_number, $e_message, $e_file, $e_line, $e_vars)
+{
 
 	// Build the error message:
 	$message = "An error occurred in script '$e_file' on line $e_line: $e_message\n";
@@ -49,14 +55,13 @@ function my_error_handler($e_number, $e_message, $e_file, $e_line, $e_vars) {
 		echo '<div class="error">' . nl2br($message);
 
 		// Add the variables and a backtrace:
-		echo '<pre>' . print_r ($e_vars, 1) . "\n";
+		echo '<pre>' . print_r($e_vars, 1) . "\n";
 		debug_print_backtrace();
 		echo '</pre></div>';
-
 	} else { // Don't show the error:
 
 		// Send an email to the admin:
-		$body = $message . "\n" . print_r ($e_vars, 1);
+		$body = $message . "\n" . print_r($e_vars, 1);
 		ini_set('SMTP', 'smtp.science.oregonstate.edu');
 		mail(EMAIL, 'Site Error!', $body, 'From: email@example.com');
 
