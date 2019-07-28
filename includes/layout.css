@@ -234,6 +234,7 @@ div.btn_group {
 #myAccount_container,
 #awardEntry_container,
 #report_container,
+#awards_container,
 #userList_container {
   width: 400px;
   margin: 0 auto;
