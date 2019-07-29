@@ -20,6 +20,9 @@ if (!isset($page_title)) {
 	<title><?php echo $page_title; ?></title>
 	<link rel="stylesheet" type="text/css" href="./includes/layout.css">
 	<link rel="icon" href="./img/star_logo.jpg" type="image/x-icon">
+	<link href="../assets/jquery.signaturepad.css" rel="stylesheet">
+	<!--[if lt IE 9]><script src="../assets/flashcanvas.js"></script><![endif]-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 </head>
 
 <body>

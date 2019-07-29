@@ -1,70 +1,122 @@
-<?php # Script 18.5 - index.php
-// This is the main page for the site.
+<?php
 
-// Include the configuration file:
-require('includes/config.inc.php');
-//require('signature-to-image.php'); --Cant get this to wirk right, maybe another module?
-// Set the page title and include the HTML header:
-$page_title = 'Employee Recognition';
+$page_title = 'Add a signature';
+
 include('includes/templates/header.php');
 
-// Welcome the user (by name if they are logged in):
-echo '<h2>Welcome';
-if (isset($_SESSION['first_name'])) {
-    echo ", {$_SESSION['first_name']}";
-}
-echo '!</h2>';
+if (!isset($_SESSION['user_id'])) {
 
-// see if logged in
-if (isset($_SESSION['user_level'])) {
-    
-    // check user level
-    if ($_SESSION['user_level'] == 0) {
-        include('includes/templates/sig_main.php');
-    } else {
-        include('includes/templates/admin_landing.php');
-    }
+	$url = BASE_URL . 'index.php'; // Define the URL.
+	ob_end_clean(); // Delete the buffer.
+	header("Location: $url");
+	exit(); // Quit the script.
+
 }
-else {
-    include('includes/templates/sig_main.php');
+
+// Check if the form has been submitted:
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if (isset($_POST['output'])) {
+        // save image to png
+        require_once "./signature/signature-to-image.php";
+        $json = $_POST['output'];
+        $img = sigJsonToImage($json);
+        imagepng($img, "./signatures/" . $_SESSION['user_id'] . ".png");
+
+        imagedestroy($img);
+
+        chmod("./signatures/{$_SESSION['user_id']}.png", 0777);
+
+        echo "success!";
+
+    }
+
+    // Check for an uploaded file:
+    if (isset($_FILES['upload'])) {
+
+        // Validate the type. Should be JPEG or PNG.
+        $allowed = ['image/pjpeg', 'image/jpeg', 'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png', 'image/x-png'];
+        if (in_array($_FILES['upload']['type'], $allowed)) {
+
+            $name = $_FILES["file"]["name"];
+            $ext = end((explode(".", $name)));
+
+            // Move the file over.
+            if (move_uploaded_file($_FILES['upload']['tmp_name'], "./signatures/{$_SESSION['user_id']}.png")) {
+                // everyone can view it
+                chmod("./signatures/{$_SESSION['user_id']}.png", 0777);
+                echo '<p><em>The file has been uploaded!</em></p>';
+            } // End of move... IF.
+
+        } else { // Invalid type.
+            echo '<p class="error">Please upload a JPEG or PNG image.</p>';
+        }
+    } // End of isset($_FILES['upload']) IF.
+
+    // Check for an error:
+    if ($_FILES['upload']['error'] > 0) {
+        echo '<p class="error">The file could not be uploaded because: <strong>';
+
+        // Print a message based upon the error.
+        switch ($_FILES['upload']['error']) {
+            case 1:
+                print 'The file exceeds the upload_max_filesize setting in php.ini.';
+                break;
+            case 2:
+                print 'The file exceeds the MAX_FILE_SIZE setting in the HTML form.';
+                break;
+            case 3:
+                print 'The file was only partially uploaded.';
+                break;
+            case 4:
+                print 'No file was uploaded.';
+                break;
+            case 6:
+                print 'No temporary folder was available.';
+                break;
+            case 7:
+                print 'Unable to write to the disk.';
+                break;
+            case 8:
+                print 'File upload stopped.';
+                break;
+            default:
+                print 'A system error occurred.';
+                break;
+        } // End of switch.
+
+        print '</strong></p>';
+    } // End of error IF.
+
+    // Delete the file if it still exists:
+    if (file_exists($_FILES['upload']['tmp_name']) && is_file($_FILES['upload']['tmp_name'])) {
+        unlink($_FILES['upload']['tmp_name']);
+    }
+} // End of the submitted conditional.
+
+$fl = "./signatures/" . $_SESSION['user_id'] . ".png";
+
+if (file_exists($fl)) {
+    echo '<br><br><div class="center"><img class="center" src="' . $fl . '"></div>';
 }
 
 ?>
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <title>Accept a Signature · Signature Pad</title>
-  <style>
-    body { font: normal 100.01%/1.375 "Helvetica Neue",Helvetica,Arial,sans-serif; }
-  </style>
-  <link href="../assets/jquery.signaturepad.css" rel="stylesheet">
-  <!--[if lt IE 9]><script src="../assets/flashcanvas.js"></script><![endif]-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-</head>
-<body>
-  <form method="post" action="" class="sigPad">
-    <!--<label for="name">Print your name</label>
-    <input type="text" name="name" id="name" class="name">
-    <p class="typeItDesc">Review your signature</p>-->
-    <p class="drawItDesc">Draw your signature</p>
-    <ul class="sigNav">
-      <!--<li class="drawIt"><a href="#draw-it" >Draw It</a></li>-->
-      <li class="clearButton"><a href="#clear">Clear</a></li>
-    </ul>
-    <div class="sig sigWrapper">
-      <div class="typed"></div>
-      <canvas class="pad" width="400" height="150"></canvas>
-      <input type="hidden" name="output" class="output">
-    </div>
-    <button type="submit">Save</button>
-  </form>
 
-  <script src="../signature/jquery.signaturepad.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('.sigPad').signaturePad();
-    });
-  </script>
-  <script src="../signature/assets/json2.min.js"></script>
-</body>
+
+<?php include('includes/templates/signature.php'); ?>
+
 <?php include('includes/templates/footer.php'); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

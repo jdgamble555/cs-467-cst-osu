@@ -15,6 +15,13 @@ h1 {
   color: #ccc;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 p {
   font: 11px/20px verdana, arial, helvetica, sans-serif;
   margin: 0px 0px 16px 0px;
@@ -233,6 +240,7 @@ div.btn_group {
 #signup_container,
 #myAccount_container,
 #awardEntry_container,
+#sig_container,
 #report_container,
 #awards_container,
 #userList_container {

@@ -6,7 +6,8 @@ include('includes/templates/header.php');
 
 echo '<p> </p>';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
+	// Check if the form has been submitted:
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	// Need the database connection:
 	require(MYSQL);
