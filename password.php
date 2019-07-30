@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// Send an email, if desired.
 			echo '<h3>Your password has been changed.</h3>';
 			mysqli_close($dbc); // Close the database connection.
-			include('includes/footer.html'); // Include the HTML footer.
+			include('includes/templates/footer.php'); // Include the HTML footer.
 			exit();
 
 		} else { // If it did not run OK.

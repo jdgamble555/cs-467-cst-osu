@@ -1,7 +1,7 @@
 <br><br>
 <h3>Add a Signature</h3>
 <div id="sig_container">
-    <form enctype="multipart/form-data" action="signature.php" method="post">
+    <!--<form enctype="multipart/form-data" action="signature.php" method="post">
 
         <input type="hidden" name="MAX_FILE_SIZE" value="524288">
 
@@ -13,7 +13,7 @@
         </fieldset>
         <div align="center"><input type="submit" class="buttons" name="submit" value="Submit"></div>
 
-    </form>
+    </form>-->
     <form enctype="multipart/form-data" method="post" action="signature.php" class="sigPad" name="sigForm">
         <!--<label for="name">Print your name</label>
     <input type="text" name="name" id="name" class="name">

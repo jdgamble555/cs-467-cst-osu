@@ -24,8 +24,6 @@ h1 {
 
 p {
   font: 11px/20px verdana, arial, helvetica, sans-serif;
-  margin: 0px 0px 16px 0px;
-  padding: 0px;
 }
 
 #Content {
@@ -33,8 +31,7 @@ p {
 }
 
 #Content > p {
-  margin: 0px;
-  text-indent: 30px;
+  margin: 0 auto;
 }
 
 a {
@@ -65,7 +62,6 @@ a:hover {
   line-height: 11px;
   background-color: #eee;
   padding-bottom: 15px;
- 
 }
 /* I've heard this called the "be nice to Opera 5" rule. Basically, it feeds correct 
 length values to user agents that exhibit the parsing error exploited above yet get 
@@ -101,6 +97,9 @@ ul li {
 .error {
   color: #ff0033;
   font-size: 14px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
 }
 
 table {
@@ -163,7 +162,8 @@ input[type="email"] {
 
 /* Style for all buttons */
 
-input[type="submit"], .button {
+input[type="submit"],
+.button {
   background-color: #4caf50;
 }
 
@@ -177,14 +177,15 @@ button:hover {
 }
 
 /* Extra style for btn_group */
-.btn_group, .button,
+.btn_group,
+.button,
 input[type="submit"],
 input[type="reset"] {
   text-align: center;
   font-family: Times;
   font-size: 20px;
   border-radius: 15px;
-  display:inline-block;
+  display: inline-block;
 }
 
 .btn_float {

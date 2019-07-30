@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// Send the email:
 				$body = "Thank you for registering at Employee Recognition. To activate your account, please click on this link:\n\n";
 				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
-				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: admin@sitename.com');
+				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: gambljon@oregonstate.edu');
 
 				// Finish the page:
 				echo '<h3>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account.</h3>';
