@@ -7,9 +7,9 @@ include('includes/templates/header.php');
 echo '<h2>Edit a User</h2>';
 
 // Check for a valid user ID, through GET or POST:
-if ( (isset($_GET['id'])) && (is_numeric($_GET['id'])) ) { // From view_users.php
+if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) { // From view_users.php
 	$id = $_GET['id'];
-} elseif ( (isset($_POST['id'])) && (is_numeric($_POST['id'])) ) { // Form submission.
+} elseif ((isset($_POST['id'])) && (is_numeric($_POST['id']))) { // Form submission.
 	$id = $_POST['id'];
 } else { // No valid ID, kill the script.
 	echo '<p class="error">This page has been accessed in error.</p>';
@@ -45,6 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$e = mysqli_real_escape_string($dbc, trim($_POST['email']));
 	}
 
+	// Check for a user role:
+	$ur = mysqli_real_escape_string($dbc, trim($_POST['user_role']));
+
 	if (empty($errors)) { // If everything's OK.
 
 		//  Test for unique email address:
@@ -53,22 +56,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (mysqli_num_rows($r) == 0) {
 
 			// Make the query:
-			$q = "UPDATE users SET first_name='$fn', last_name='$ln', email='$e' WHERE user_id=$id LIMIT 1";
+			$q = "UPDATE users SET first_name='$fn', last_name='$ln', email='$e', user_level='$ur' WHERE user_id=$id LIMIT 1";
 			$r = @mysqli_query($dbc, $q);
 			if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
 
 				// Print a message:
-				echo '<p>The user has been edited.</p>';
-
+				echo '<p class="center">The user has been edited.</p>';
 			} else { // If it did not run OK.
 				echo '<p class="error">The user could not be edited due to a system error. We apologize for any inconvenience.</p>'; // Public message.
 				echo '<p>' . mysqli_error($dbc) . '<br>Query: ' . $q . '</p>'; // Debugging message.
 			}
-
 		} else { // Already registered.
 			echo '<p class="error">The email address has already been registered.</p>';
 		}
-
 	} else { // Report the errors.
 
 		echo '<p class="error">The following error(s) occurred:<br>';
@@ -76,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo " - $msg<br>\n";
 		}
 		echo '</p><p>Please try again.</p>';
-
 	} // End of if (empty($errors)) IF.
 
 } // End of submit conditional.
@@ -84,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Always show the form...
 
 // Retrieve the user's information:
-$q = "SELECT first_name, last_name, email FROM users WHERE user_id=$id";
+$q = "SELECT first_name, last_name, email, user_level FROM users WHERE user_id=$id";
 $r = @mysqli_query($dbc, $q);
 
 if (mysqli_num_rows($r) == 1) { // Valid user ID, show the form.
@@ -94,7 +93,6 @@ if (mysqli_num_rows($r) == 1) { // Valid user ID, show the form.
 
 	// Create the form:
 	include('includes/templates/edit_user.php');
-
 } else { // Not a valid user ID.
 	echo '<p class="error">This page has been accessed in error.</p>';
 }

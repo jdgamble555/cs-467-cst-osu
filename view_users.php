@@ -41,7 +41,7 @@ if (isset($_GET['s']) && is_numeric($_GET['s'])) {
 }
 
 // Define the query:
-$q = "SELECT last_name, first_name, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr, user_id FROM users ORDER BY registration_date ASC LIMIT $start, $display";
+$q = "SELECT last_name, first_name, user_level, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr, user_id FROM users ORDER BY registration_date ASC LIMIT $start, $display";
 $r = @mysqli_query($dbc, $q);
 
 // Table header:
@@ -53,6 +53,7 @@ echo '<table width="60%">
 	<th align="left"><strong>Last Name</strong></th>
 	<th align="left"><strong>First Name</strong></th>
 	<th align="left"><strong>Date Registered</strong></th>
+	<th align="left"><strong>Role</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -64,6 +65,8 @@ $bg = '#eeeeee'; // Set the initial background color.
 
 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 
+	$level = $row['user_level'] == 1 ? 'admin': 'user';
+
 	$bg = ($bg=='#eeeeee' ? '#ffffff' : '#eeeeee'); // Switch the background color.
 
 	echo '<tr bgcolor="' . $bg . '">
@@ -72,6 +75,7 @@ while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 		<td align="left">' . $row['last_name'] . '</td>
 		<td align="left">' . $row['first_name'] . '</td>
 		<td align="left">' . $row['dr'] . '</td>
+		<td align="left">' . $level . '</td>
 	</tr>
 	';
 
