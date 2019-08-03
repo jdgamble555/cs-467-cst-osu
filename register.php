@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
 
 				// Send the email:
-				$body = "Thank you for registering at Employee Recognition. To activate your account, please click on this link:\n\n";
+				$body = "Thank you for registering at Excellent Job. To activate your account, please click on this link:\n\n";
 				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
 				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: gambljon@oregonstate.edu');
 

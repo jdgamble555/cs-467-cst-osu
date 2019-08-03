@@ -9,7 +9,7 @@ session_start();
 
 // Check for a $page_title value:
 if (!isset($page_title)) {
-	$page_title = 'Employee Recognition';
+	$page_title = 'Excellent Job';
 }
 ?>
 <!doctype html>
@@ -28,7 +28,7 @@ if (!isset($page_title)) {
 <body>
 	<div class="header">
 		<img src="img/star_logo.jpg" alt="logo">
-		<h1><a href="index.php">Employee Recognition</a></h1>
+		<h1><a href="index.php">Excellent Job</a></h1>
 	</div>
 	<div id="Content">
 		<!-- End of Header -->

@@ -5,7 +5,7 @@
 require('includes/config.inc.php');
 
 // Set the page title and include the HTML header:
-$page_title = 'Employee Recognition';
+$page_title = 'Excellent Job';
 include('includes/templates/header.php');
 
 // Welcome the user (by name if they are logged in):
