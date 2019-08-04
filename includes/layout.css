@@ -55,35 +55,22 @@ a:hover {
   background-color: #eee;
 }
 
-#Header {
+/*#Header {
   font-size: 24px;
   border-style: solid;
   border-color: black;
-  border-width: 1px 0px; /* top and bottom borders: 1px; left and right borders: 0px */
+  border-width: 1px 0px;  top and bottom borders: 1px; left and right borders: 0px 
   line-height: 11px;
   background-color: #eee;
   padding-bottom: 15px;
-}
+}*/
 /* I've heard this called the "be nice to Opera 5" rule. Basically, it feeds correct 
 length values to user agents that exhibit the parsing error exploited above yet get 
 the CSS box model right and understand the CSS2 parent-child selector. ALWAYS include
 a "be nice to Opera 5" rule every time you use the Tantek Celik hack (above). */
-body > #Header {
+/*body > #Header {
   height: 14px;
-}
-
-/* #Content {} */
-
-#Menu {
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 10px;
-  width: 600px;
-  background-color: #eee;
-  border: 1px solid #999;
-  line-height: 17px;
-}
+}*/
 
 ul {
   list-style: none;
