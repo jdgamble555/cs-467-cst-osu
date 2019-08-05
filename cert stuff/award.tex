@@ -1,0 +1,45 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx} 
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\pagenumbering{gobble}
+\usepackage{textcomp}
+
+\begin{document}
+\begin{wrapfigure}{1}{0.25\textwidth}
+\includegraphics[scale=.1]{star_logo.jpg}
+\end{wrapfigure}
+
+\textit{EXCELLENT JOB}\\\\
+\linespread{1.5}
+\selectfont
+\begin{LARGE}
+\begin{center}
+\textbf{ Certificate of Recognition\\ }
+\end{center}
+\end{LARGE}
+\begin{small}
+\begin{center}
+An Award from {\sender}\\
+\textsc{\award_type}
+\end{center}
+\end{small}
+ 
+\section*{}
+Dear {\receiver},\\\\
+Congratulations on a job well done and thank you for being a valuable\\ member of our team.  Keep up the good work!
+\newline
+\newline
+Signed,
+\begin{center}
+    \includegraphics{sig.jpg}\\
+\textsc{\signature}\\
+\textsc{\timestamp}
+\end{center}
+\end{document} 
+
+% <?php echo "\n"."\\newcommand{\\receiver}{". sani($data['receiver']) . "}\n"; ?>
+% <?php echo "\n"."\\newcommand{\\sender}{". sani($data['sender']) . "}\n"; ?>
+% <?php echo "\n"."\\newcommand{\\timestamp}{". sani($data['timestamp']) . "}\n"; ?>
+% <?php echo "\n"."\\newcommand{\\award_type}{". sani($data['award_type']) . "}\n"; ?>
+% <?php echo "\n"."\\newcommand{\\signature}{". sani($data['signature']) . "}\n"; ?>
