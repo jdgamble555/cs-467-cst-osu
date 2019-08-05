@@ -252,6 +252,7 @@ div.btn_group {
   margin: 0 auto;
   transition: opacity 1s;
   -webkit-transition: opacity 1s;
+  margin-bottom: 100px;
 }
 
 /* Table style */
