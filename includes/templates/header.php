@@ -28,11 +28,11 @@ if (!isset($page_title)) {
 <body>
 <header>
 		<!-- <img src="img/star_logo.jpg" alt="logo"> -->
-		<h1><a href="index.php">Excellent Job</a></h1>
+		<h1><a href="index.php" id="mainHeader">Excellent Job</a></h1>
 
 			<nav>
 				<ul>
-					<li><a href="index.php" title="Home Page">Home</a></li>
+					<li><a href="index.php" title="Home Page" id="menu">Home</a></li>
 					<?php # Script 18.2 - footer.html
 					// This page completes the HTML template.
 
@@ -48,14 +48,14 @@ if (!isset($page_title)) {
 							echo '<li><a href="view_users.php" title="View All Users">View Users</a></li>';
 						}
 					} else { //  Not logged in.
-						echo '<li><a href="register.php" title="Register for the Site">Register</a></li>
-				<li><a href="login.php" title="Login">Login</a></li>
-				<li><a href="forgot.php" title="Password Retrieval">Retrieve Password</a></li>
+						echo '<li><a href="register.php" title="Register for the Site"  id="menu">Register</a></li>
+				<li><a href="login.php" title="Login" id="menu">Login</a></li>
+				<li><a href="forgot.php" title="Password Retrieval" id="menu">Retrieve Password</a></li>
 				';
 					}
 					?>
-					<li><a href="#">Some Page</a></li>
-					<li><a href="#">Another Page</a></li>
+					<li><a href="#" id="menu">Some Page</a></li>
+					<li><a href="#" id="menu">Another Page</a></li>
 				</ul>
 			</nav>
 </header>

@@ -2,7 +2,6 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: verdana, arial, helvetica, sans-serif;
-  background-color: white;
 }
 
 header {
@@ -12,23 +11,17 @@ header {
     height: 100%;
     margin: 0 auto;
     padding: 20px 25px 20px 45px;
-    color: white;
     background-image: url(../img/header2.jpg);
-}
-
-header img {
-    float: left;
-    width: 70px;
-    height: 70px;
 }
 
 header h1 {
     line-height: 45px;
     font-size: 2rem;
     margin: 0;
-    display:inline;
+    display: inline;
 }
 
+/* Put menu bar right next to h1 */
 nav {
     padding-left: 0;
     margin-bottom: 0;
@@ -37,6 +30,7 @@ nav {
     display: inline;
 }
 
+/* Display menu option horizontally */
 nav li {
     position: relative;
     display: inline-block;
@@ -45,15 +39,27 @@ nav li {
     padding: 0 1rem;
 }
 
-nav li > a {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
+a {
+  color: #09c;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: verdana, arial, helvetica, sans-serif;
 }
 
-nav > li > a:hover,
-nav > li > a:focus {
-    text-decoration: none;
+/* Hover over effect on menu bar */
+#menu:hover {
+  color: #9400D3;
+  text-decoration: underline;
+}
+
+h2 {
+  margin-top: 5%;
+  text-align: center;
+}
+
+h3 {
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .center {
@@ -76,26 +82,6 @@ nav > li > a:focus {
   margin: 0 auto;
 }*/
 
-a {
-  color: #09c;
-/*  font-size: 11px;*/
-  text-decoration: none;
-  font-weight: 600;
-  font-family: verdana, arial, helvetica, sans-serif;
-}
-
-a:link {
-  color: #09c;
-}
-
-a:visited {
-  color: #07a;
-}
-
-a:hover {
-  background-color: #eee;
-}
-
 /*#Header {
   font-size: 24px;
   border-style: solid;
@@ -113,10 +99,6 @@ a "be nice to Opera 5" rule every time you use the Tantek Celik hack (above). */
   height: 14px;
 }*/
 
-.menu {
-  background-color: #ccc;
-}
-
 .error {
   color: #ff0033;
   font-size: 14px;
@@ -130,21 +112,6 @@ table {
   margin-right: auto;
 }
 
-/* Keep header style for all headers with hyperlink */
-h1 a {
-  color: black;
-  text-decoration: none;
-}
-
-h2 {
-  margin-top: 5%;
-  text-align: center;
-}
-
-h3 {
-  max-width: 300px;
-  margin: 0 auto;
-}
 
 /* Set form container style */
 .container {
