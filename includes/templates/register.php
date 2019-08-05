@@ -17,7 +17,7 @@
 		<input type="file" name="upload" size="40" required><br><br><br>
 		
 		<div class="clearfix">
-			<input type="reset" class="buttons cancelbtn btn_float" value="Cancel">
+<!-- 		<input type="reset" class="buttons cancelbtn btn_float" value="Cancel"> -->
 			<input type="submit" class="buttons signupbtn btn_float" name="submit" value="Sign Up">
 		</div>
 	</div>

@@ -48,9 +48,9 @@ if (!isset($page_title)) {
 							echo '<li><a href="view_users.php" title="View All Users">View Users</a></li>';
 						}
 					} else { //  Not logged in.
-						echo '<li><a href="register.php" title="Register for the Site"  id="menu">Register</a></li>
-				<li><a href="login.php" title="Login" id="menu">Login</a></li>
+						echo '<li><a href="login.php" title="Login" id="menu">Login</a></li>
 				';
+				// <li><a href="register.php" title="Register for the Site"  id="menu">Register</a></li>
 				// <li><a href="forgot.php" title="Password Retrieval" id="menu">Retrieve Password</a></li>
 					}
 					?>
