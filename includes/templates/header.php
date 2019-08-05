@@ -50,12 +50,12 @@ if (!isset($page_title)) {
 					} else { //  Not logged in.
 						echo '<li><a href="register.php" title="Register for the Site"  id="menu">Register</a></li>
 				<li><a href="login.php" title="Login" id="menu">Login</a></li>
-				<li><a href="forgot.php" title="Password Retrieval" id="menu">Retrieve Password</a></li>
 				';
+				// <li><a href="forgot.php" title="Password Retrieval" id="menu">Retrieve Password</a></li>
 					}
 					?>
-					<li><a href="#" id="menu">Some Page</a></li>
-					<li><a href="#" id="menu">Another Page</a></li>
+					<li><a href="#" id="menu">Contact Us</a></li>
+					<!-- <li><a href="#" id="menu">Another Page</a></li> -->
 				</ul>
 			</nav>
 </header>

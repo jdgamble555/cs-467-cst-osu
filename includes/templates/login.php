@@ -13,7 +13,7 @@
         <input type="submit" class="buttons" name="submit" value="Sign in">
 
         <!--     User Forgot Password     -->
-        <p class="psw"><a href="forgot_password.php">Forgot password?</a></p>
+        <p class="psw"><a href="forgot.php">Forgot password?</a></p>
 
         <!--     New User Sign Up     -->
         <p class="signup">Not enrolled?<a href="register.php"> Sign up now.</a></p>

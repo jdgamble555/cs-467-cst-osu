@@ -53,8 +53,10 @@ a {
 }
 
 h2 {
-  margin-top: 5%;
-  text-align: center;
+    margin: 5% 0 3% 0;
+    text-align: center;
+    font-family:  "Times New Roman", Times, serif;
+    font-size: 40px;
 }
 
 h3 {
@@ -63,13 +65,42 @@ h3 {
 }
 
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  text-align: center;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 25px;
+   width: 55%;
+   text-align: center;
 }
 
+#welcomeMessage {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 30px;
+    background-color: #87CEFA;
+    border-radius: 15px 50px;
+    margin-bottom: 100px;
+}
+
+.footer {
+    height: 24px; 
+    width: 100%;
+    text-align: center;
+    background-image: url(../img/header2.jpg);
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 10% 0%;
+    position: fixed;
+    bottom: 0pt;
+}   
+
+.footer_contents {
+
+    height:24px; // Replace with the height your footer should be
+    width: 1000px; // Visible width of footer
+    margin:auto;
+
+}
 /*p {
   font: 11px/20px verdana, arial, helvetica, sans-serif;
 }*/
