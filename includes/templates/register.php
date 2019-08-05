@@ -13,9 +13,6 @@
 
 		<p><strong>Confirm Password:</strong> <input type="password" placeholder="Repeat Password" name="password2" size="20" value="<?php if (isset($trimmed['password2'])) echo $trimmed['password2']; ?>"></p>
 		
-		<label for="signature"><b>Please upload a file of your signature:</b></label>
-		<input type="file" name="upload" size="40" required><br><br><br>
-		
 		<div class="clearfix">
 <!-- 		<input type="reset" class="buttons cancelbtn btn_float" value="Cancel"> -->
 			<input type="submit" class="buttons signupbtn btn_float" name="submit" value="Sign Up">
