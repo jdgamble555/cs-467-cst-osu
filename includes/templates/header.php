@@ -54,8 +54,7 @@ if (!isset($page_title)) {
 				// <li><a href="forgot.php" title="Password Retrieval" id="menu">Retrieve Password</a></li>
 					}
 					?>
-					<li><a href="#" id="menu">Contact Us</a></li>
-					<!-- <li><a href="#" id="menu">Another Page</a></li> -->
+					<li><a href="contact_us.php" title="Contact Us" id="menu">Contact Us</a></li>
 				</ul>
 			</nav>
 </header>
