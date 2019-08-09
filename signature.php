@@ -99,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } // End of isset($_FILES['upload']) IF.
 } // End of the submitted conditional.
 
+$t = time();
 $fl = "./signatures/" . $_SESSION['user_id'] . ".png";
 
 if (file_exists($fl)) {
