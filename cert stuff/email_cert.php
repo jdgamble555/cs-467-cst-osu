@@ -34,22 +34,28 @@ receiver.first_name,
 receiver.last_name, 
 sender.first_name, 
 sender.last_name, 
-award_type, 
+awards.award_type, 
 Date_format(awards.timestamp, '%Y/%m/%d') AS da 
 FROM awards 
 INNER JOIN users AS receiver 
 ON awards.receiver = receiver.user_id 
 INNER JOIN users AS sender 
-ON awards.sender = sender.user_id";
-
+ON awards.sender = sender.user_id
+WHERE awards.id = $id";
 
 $stmt = $dbc->prepare($query);
 $stmt->execute();
-$stmt->bind_result($id, $r_fname, $r_lname, $s_fname, $s_lname, $award_type, $date);
+$stmt->bind_result($aID, $r_fname, $r_lname, $s_fname, $s_lname, $award_type, $date);
 $stmt->fetch();
 $stmt->close();
 
 $dbc->close();
+
+print $aID;
+
+print $r_fname;
+
+print $award_type;
 
 /**
  * $id = award_id
@@ -63,8 +69,6 @@ $dbc->close();
 
 
 // input data into .tex - data needs to be in an array - also used to send pdf
-
-$aID = $id;
 
 $receiver = $r_fname . " " . $r_lname;
 $sender = $s_fname . " " . $s_lname;
