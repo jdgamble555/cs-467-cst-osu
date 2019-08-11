@@ -1,0 +1,58 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx} 
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\pagenumbering{gobble}
+\usepackage{textcomp}
+
+\newcommand{\placeholder}[1]{\\textbf{$<$ #1 $>$}}
+\newcommand{\receiver}{\placeholder{receiver}}
+
+\newcommand{\sender}{\placeholder{sender}}
+
+%\newcommand{\date}{\placeholder{date}}
+\newcommand{\awardtype}{\placeholder{awardtype}}
+%\newcommand{\signature}{\placeholder{Data here}}
+
+
+
+\begin{document}
+\begin{wrapfigure}{1}{0.25\textwidth}
+\includegraphics[scale=.1]{star_logo.jpg}
+\end{wrapfigure}
+
+\textit{EXCELLENT JOB}\\\\
+\linespread{1.5}
+\selectfont
+\begin{LARGE}
+\begin{center}
+\textbf{ Certificate of Recognition\\ }
+\end{center}
+\end{LARGE}
+\begin{small}
+\begin{center}
+An Award from {\sender}me}\\
+\textsc{\awardtype}
+\end{center}
+\end{small}
+ 
+\section*{}
+Dear {\receiver}{\rlname},\\\\
+Congratulations on a job well done and thank you for being a valuable\\ member of our team.  Keep up the good work!
+\newline
+\newline
+Signed,
+\begin{center}
+    \includegraphics{star_logo.jpg}\\
+%\textsc{\signature}\\
+\textsc{\date}
+\end{center}
+\end{document} 
+
+% <?php echo "\n"."\\renewcommand{\\receiver}{". clean_text($data['receiver']) . "}\n"; ?>
+% <?php echo "\n"."\\renewcommand{\\receiver}{". clean_text($data['rlname']) . "}\n"; ?>
+% <?php echo "\n"."\\renewcommand{\\receiver}{". clean_text($data[sender']) . "}\n"; ?>
+% <?php echo "\n"."\\renewcommand{\\receiver}{". clean_text($data[slname']) . "}\n"; ?>
+% <?php echo "\n"."\\renewcommand{\\date}{". clean_text($data['date']) . "}\n"; ?>
+% <?php echo "\n"."\\renewcommand{\\awardtype}{". clean_text($data['awardtype']) . "}\n"; ?>
+% <?php echo "\n"."\\renewcommand{\\signature}{". clean_text($data['signature']) . "}\n"; ?>
