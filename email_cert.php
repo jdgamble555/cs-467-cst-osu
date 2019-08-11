@@ -21,7 +21,7 @@ if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) { // From view_users.php
 
 require('mysqli_connect.php');
 include "laTex.php";
-include ('includes/award.tex');
+//include ('includes/award.tex');
 ini_set('display_errors', 'On');
 
 
