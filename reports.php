@@ -63,6 +63,8 @@ ON awards.sender = sender.user_id";
 
 
     $bg = '#eeeeee'; // Set the initial background color.
+
+    $es = [];
     while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 
         $bg = ($bg == '#eeeeee' ? '#ffffff' : '#eeeeee'); // Switch the background color.
@@ -74,10 +76,55 @@ ON awards.sender = sender.user_id";
             <td align="left">' . $row['da'] . '</td>
         </tr>
         ';
+        $name = $row['rfirst'] . ' ' . $row['rlast'];
+        if (!isset($es[$name])) {
+            $es[$name] = 0;
+        }
+        $es[$name]++;
     }
 
     $s .= '</tbody></table>';
 
+    $s .= '
+    <!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light1", // "light2", "dark1", "dark2"
+	animationEnabled: false, // change to true		
+	title:{
+		text: "Top Employees"
+	},
+	data: [
+	{
+		// Change type to "bar", "area", "spline", "pie",etc.
+		type: "column",
+        dataPoints: [';
+
+    foreach ($es as $key => $value) {
+        $s .= '{ label: "' . $key .'", y: ' . $value . '},';
+    }
+    $s .= '
+		]
+	}
+	]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<p> </p>
+<div id="chartContainer" style="height: 370px; width: 60%; margin: 0 auto;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+</body>
+</html>
+    
+    ';
 } else {
 
     $page_title = 'Award Report Generation';
