@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo '<p class="error">Your password did not match the confirmed password!</p>';
 		}
 	} else {
-		echo '<p class="error">Please enter a valid password!</p>';
+		echo '<p class="error">Please enter a valid password! Minimum 10 characters.</p>';
 	}
 
 	if ($p) { // If everything's OK.
