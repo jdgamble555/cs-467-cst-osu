@@ -55,7 +55,7 @@
         doc.text(20, 110, 'Keep up the good work!');
 
         <?php
-            if (file_exists ('./signatures/22.png')) {
+            if (file_exists('./signatures/'.$rID.'.png')) {
         ?>
 
         doc.text(20, 120, 'Accepted by:');
