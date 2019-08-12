@@ -13,11 +13,24 @@
     <script>
         var doc = new jsPDF()
         var img = new Image;
-        var src = '../img/header2.jpg';
+        var src = './img/header2.jpg';
         img.src = src;
         var img2 = new Image;
-        src = '../img/star_logo.jpg';
+        src = './img/star_logo.jpg';
         img2.src = src;
+
+        // signature Image
+        <?php
+            if (file_exists('./signatures/'.$rID.'.png')) {
+        ?>
+
+        var img3 = new Image;
+        src = './signatures/<?php echo $rID; ?>.png';
+        img3.src = src;
+        img3.width = 80;
+        img3.height = 30;
+
+        <?php } ?>
 
         // Excellent Job and Image
         doc.addImage(img, 10, 10);
@@ -40,7 +53,17 @@
         doc.text(20, 90, 'Dear <?php echo $r_fname . " " . $r_lname; ?>,');
         doc.text(20, 100, 'Congratulations on a job well done and thank you for being a valuable member of our team.');
         doc.text(20, 110, 'Keep up the good work!');
-        doc.save('a4.pdf');
+
+        <?php
+            if (file_exists ('./signatures/22.png')) {
+        ?>
+
+        doc.text(20, 120, 'Accepted by:');
+        doc.addImage(img3, 20, 125, 40, 15);
+
+        <?php } ?>
+
+        doc.save('certificate.pdf');
 
     </script>
 </body>

@@ -16,6 +16,7 @@ if (isset($_GET['award'])) {
 	$id = $_GET['award'];
 
 	$query = "SELECT awards.id, 
+receiver,
 receiver.first_name, 
 receiver.last_name, 
 sender.first_name, 
@@ -31,7 +32,7 @@ WHERE awards.id = $id";
 
 	$stmt = $dbc->prepare($query);
 	$stmt->execute();
-	$stmt->bind_result($aID, $r_fname, $r_lname, $s_fname, $s_lname, $award_type, $date);
+	$stmt->bind_result($aID, $rID, $r_fname, $r_lname, $s_fname, $s_lname, $award_type, $date);
 	$stmt->fetch();
 	$stmt->close();
 
