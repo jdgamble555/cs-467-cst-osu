@@ -1,5 +1,7 @@
 <?php
 
+require('includes/config.inc.php');
+
 $page_title = 'Award Management';
 
 include('includes/templates/header.php');

@@ -39,9 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if (password_verify($p, $pass)) {
 
 				// Store the info in the session:
-				$_SESSION['user_id'] = $user_id;
-				$_SESSION['first_name'] = $first_name;
-				$_SESSION['user_level'] = $user_level;
+				$_SESSION[SQLFIX . 'user_id'] = $user_id;
+				$_SESSION[SQLFIX . 'first_name'] = $first_name;
+				$_SESSION[SQLFIX . 'user_level'] = $user_level;
 				mysqli_close($dbc);
 
 				$url = BASE_URL . 'index.php'; // Define the URL.

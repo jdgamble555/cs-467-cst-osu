@@ -5,7 +5,7 @@ $page_title = 'Logout';
 include('includes/templates/header.php');
 
 // If no first_name session variable exists, redirect the user:
-if (!isset($_SESSION['first_name'])) {
+if (!isset($_SESSION[SQLFIX . 'first_name'])) {
 
 	$url = BASE_URL . 'index.php'; // Define the URL.
 	ob_end_clean(); // Delete the buffer.

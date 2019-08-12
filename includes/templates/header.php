@@ -37,14 +37,14 @@ if (!isset($page_title)) {
 					// This page completes the HTML template.
 
 					// Display links based upon the login status:
-					if (isset($_SESSION['user_id'])) {
+					if (isset($_SESSION[SQLFIX . 'user_id'])) {
 
 						echo '<li><a href="logout.php" title="Logout">Logout</a></li>
 				<li><a href="password.php" title="Change Your Password">Change Password</a></li>
 				';
 
 						// Add links if the user is an administrator:
-						if ($_SESSION['user_level'] == 1) {
+						if ($_SESSION[SQLFIX . 'user_level'] == 1) {
 							echo '<li><a href="view_users.php" title="View All Users">View Users</a></li>';
 						}
 					} else { //  Not logged in.

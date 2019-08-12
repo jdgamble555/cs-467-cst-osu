@@ -5,7 +5,7 @@ $page_title = 'Change Your Password';
 include('includes/templates/header.php');
 
 // If no user_id session variable exists, redirect the user:
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION[SQLFIX . 'user_id'])) {
 
 	$url = BASE_URL . 'index.php'; // Define the URL.
 	ob_end_clean(); // Delete the buffer.
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($p) { // If everything's OK.
 
 		// Make the query:
-		$q = "UPDATE users SET pass='$p' WHERE user_id={$_SESSION['user_id']} LIMIT 1";
+		$q = "UPDATE users SET pass='$p' WHERE user_id={$_SESSION[SQLFIX . 'user_id']} LIMIT 1";
 		$r = mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br>MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
 

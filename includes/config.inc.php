@@ -29,6 +29,9 @@ define('BASE_URL', $url);
 // Location of the MySQL connection script:
 define('MYSQL', './mysqli_connect.php');
 
+// Session Prefix
+define('SQLFIX', 'EJS_');
+
 // Adjust the time zone for PHP 5.1 and greater:
 date_default_timezone_set('America/Chicago');
 

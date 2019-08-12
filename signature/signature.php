@@ -10,16 +10,16 @@ include('includes/templates/header.php');
 
 // Welcome the user (by name if they are logged in):
 echo '<h2>Welcome';
-if (isset($_SESSION['first_name'])) {
-    echo ", {$_SESSION['first_name']}";
+if (isset($_SESSION[SQLFIX . 'first_name'])) {
+    echo ", {$_SESSION[SQLFIX . 'first_name']}";
 }
 echo '!</h2>';
 
 // see if logged in
-if (isset($_SESSION['user_level'])) {
+if (isset($_SESSION[SQLFIX . 'user_level'])) {
     
     // check user level
-    if ($_SESSION['user_level'] == 0) {
+    if ($_SESSION[SQLFIX . 'user_level'] == 0) {
         include('includes/templates/regular_landing.php');
     } else {
         include('includes/templates/admin_landing.php');

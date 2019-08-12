@@ -2,6 +2,8 @@
 // This page is for editing a user record.
 // This page is accessed through view_users.php.
 
+require('includes/config.inc.php');
+
 $page_title = 'Edit a User';
 include('includes/templates/header.php');
 echo '<h2>Edit a User</h2>';

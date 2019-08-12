@@ -1,5 +1,7 @@
 <?php
 
+require('includes/config.inc.php');
+
 require_once('mysqli_connect.php');
 
 if (isset($_POST['display']) || isset($_POST['export'])) {

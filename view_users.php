@@ -2,6 +2,8 @@
 // This script retrieves all the records from the users table.
 // This new version paginates the query results.
 
+require('includes/config.inc.php');
+
 $page_title = 'View the Current Users';
 include('includes/templates/header.php');
 echo '<h2>Registered Users</h2>';

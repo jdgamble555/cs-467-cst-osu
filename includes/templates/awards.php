@@ -25,7 +25,7 @@
             echo '<tr>
 		<td align="left">' . $row['da'] . '</td>
         <td align="left">' . $row['first_name'] . ' ' . $row['last_name'] . '</td>
-        <td align="left">' . $row['award_type'] . '</td>
+        <td align="left">' . '<a href="my_awards.php?award=' . $row['id'] . '">' . $row['award_type'] . '</a></td>
         <td><button class="deletebtn" onclick="location.href=\'delete_award.php?id=' . $row['id'] . '\'">Delete</button></td>
 	</tr>
 	';
@@ -56,7 +56,7 @@
                 ?>
 
             </select>
-            <input type="hidden" name="sender" value="<?php echo $_SESSION['user_id']; ?>">
+            <input type="hidden" name="sender" value="<?php echo $_SESSION[SQLFIX . 'user_id']; ?>">
             <h4>Award Type: <input name="award_type" type="text" placeholder="Enter award type">
 
 

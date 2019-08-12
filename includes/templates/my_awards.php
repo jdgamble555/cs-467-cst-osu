@@ -11,7 +11,7 @@
         <?php
 
         // used inner join here with foreign key
-        $q = "SELECT award_type, DATE_FORMAT(awards.timestamp, '%Y/%m/%d') AS da FROM awards WHERE receiver='" . $_SESSION['user_id'] . "' ORDER BY da ASC";
+        $q = "SELECT id, award_type, DATE_FORMAT(awards.timestamp, '%Y/%m/%d') AS da FROM awards WHERE receiver='" . $_SESSION[SQLFIX . 'user_id'] . "' ORDER BY da ASC";
         $r = @mysqli_query($dbc, $q);
 
         $bg = '#eeeeee'; // Set the initial background color.
@@ -24,7 +24,7 @@
 
             echo '<tr>
 		<td align="left">' . $row['da'] . '</td>
-        <td align="left">' . $row['award_type'] . '</td>
+        <td align="left">' . '<a href="my_awards.php?award=' . $row['id'] . '">' . $row['award_type'] . '</a></td>
 	    </tr>
 	    ';
         } // End of WHILE loop.

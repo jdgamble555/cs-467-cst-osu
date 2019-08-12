@@ -1,5 +1,7 @@
 <?php
 
+require('includes/config.inc.php');
+
 $page_title = 'Add a signature';
 
 include('includes/templates/header.php');
@@ -10,7 +12,7 @@ error_reporting(E_ALL);
 
 ini_set('memory_limit', '128M');
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION[SQLFIX . 'user_id'])) {
 
     $url = BASE_URL . 'index.php'; // Define the URL.
     ob_end_clean(); // Delete the buffer.
@@ -27,11 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require_once "./signature/signature-to-image.php";
         $json = $_POST['output'];
         $img = sigJsonToImage($json);
-        $test = imagepng($img, "./signatures/" . $_SESSION['user_id'] . ".png");
+        $test = imagepng($img, "./signatures/" . $_SESSION[SQLFIX . 'user_id'] . ".png");
 
         imagedestroy($img);
 
-        chmod("./signatures/{$_SESSION['user_id']}.png", 0777);
+        chmod("./signatures/{$_SESSION[SQLFIX . 'user_id']}.png", 0777);
 
     }
 
@@ -46,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //$ext = end((explode(".", $name)));
 
             // Move the file over.
-            if (move_uploaded_file($_FILES['upload']['tmp_name'], "./signatures/{$_SESSION['user_id']}.png")) {
+            if (move_uploaded_file($_FILES['upload']['tmp_name'], "./signatures/{$_SESSION[SQLFIX . 'user_id']}.png")) {
                 // everyone can view it
-                chmod("./signatures/{$_SESSION['user_id']}.png", 0777);
+                chmod("./signatures/{$_SESSION[SQLFIX . 'user_id']}.png", 0777);
                 echo '<p><em>The file has been uploaded!</em></p>';
             } // End of move... IF.
 
@@ -100,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } // End of the submitted conditional.
 
 $t = time();
-$fl = "./signatures/" . $_SESSION['user_id'] . ".png";
+$fl = "./signatures/" . $_SESSION[SQLFIX . 'user_id'] . ".png";
 
 if (file_exists($fl)) {
     echo '<br><br><div class="center"><img class="center" src="' . $fl . '"></div>';

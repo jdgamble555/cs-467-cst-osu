@@ -2,6 +2,8 @@
 // This page is for deleting a user record.
 // This page is accessed through view_users.php.
 
+require('includes/config.inc.php');
+
 $page_title = 'Delete a User';
 include('includes/templates/header.php');
 echo '<h2>Delete a User</h2>';
