@@ -1,5 +1,5 @@
 <h2>Forgot My Password</h2>
-<form action="forgot_password.php" method="post">
+<form action="forgot.php" method="post">
 	<div id="pwr_container">
 		<p>Please enter your email address associated with your account. We'll send you a link to reset your password.</p>
 		<div class="pwr-email">

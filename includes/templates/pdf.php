@@ -21,11 +21,11 @@
 
         // signature Image
         <?php
-            if (file_exists('./signatures/'.$rID.'.png')) {
+            if (file_exists('./signatures/'.$sID.'.png')) {
         ?>
 
         var img3 = new Image;
-        src = './signatures/<?php echo $rID; ?>.png';
+        src = './signatures/<?php echo $sID; ?>.png';
         img3.src = src;
         img3.width = 80;
         img3.height = 30;
@@ -48,18 +48,18 @@
         doc.setFont("arial");
         doc.setFontSize(12);
         doc.setTextColor("#000")
-        doc.text(20, 70, 'An Award from <?php echo $s_fname . " " . $s_lname; ?> on <?php echo $date; ?>.');
+        doc.text(20, 70, '<?php echo $date; ?>');
         // more
         doc.text(20, 90, 'Dear <?php echo $r_fname . " " . $r_lname; ?>,');
         doc.text(20, 100, 'Congratulations on a job well done and thank you for being a valuable member of our team.');
         doc.text(20, 110, 'Keep up the good work!');
 
         <?php
-            if (file_exists('./signatures/'.$rID.'.png')) {
+            if (file_exists('./signatures/'.$sID.'.png')) {
         ?>
 
-        doc.text(20, 120, 'Accepted by:');
-        doc.addImage(img3, 20, 125, 40, 15);
+        doc.addImage(img3, 20, 115, 40, 15);
+        doc.text(20, 130, '<?php echo $s_fname . " " . $s_lname; ?>');
 
         <?php } ?>
 
