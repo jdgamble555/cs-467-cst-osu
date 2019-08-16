@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
 
 			// Print a message:
-			echo '<p>The user has been deleted.</p>';
+			echo '<p class="center">The user has been deleted.</p>';
 
 		} else { // If the query did not run OK.
 			echo '<p class="error">The user could not be deleted due to a system error.</p>'; // Public message.
