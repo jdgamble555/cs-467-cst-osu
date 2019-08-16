@@ -26,37 +26,30 @@ if (!isset($page_title)) {
 </head>
 
 <body>
-<header>
+	<header>
 		<!-- <img src="img/star_logo.jpg" alt="logo"> -->
 		<h1><a href="index.php" id="mainHeader">Excellent Job</a></h1>
 
-			<nav>
-				<ul>
-					<li><a href="index.php" title="Home Page" id="menu">Home</a></li>
-					<?php # Script 18.2 - footer.html
-					// This page completes the HTML template.
+		<nav>
+			<ul>
+				<li><a href="index.php" title="Home Page" id="menu">Home</a></li>
+				<?php # Script 18.2 - footer.html
+				// This page completes the HTML template.
 
-					// Display links based upon the login status:
-					if (isset($_SESSION[SQLFIX . 'user_id'])) {
+				// Display links based upon the login status:
+				if (isset($_SESSION[SQLFIX . 'user_id'])) {
 
-						echo '<li><a href="logout.php" title="Logout">Logout</a></li>
+					echo '<li><a href="logout.php" title="Logout">Logout</a></li>
 				<li><a href="password.php" title="Change Your Password">Change Password</a></li>
 				';
-
-						// Add links if the user is an administrator:
-						if ($_SESSION[SQLFIX . 'user_level'] == 1) {
-							echo '<li><a href="view_users.php" title="View All Users">View Users</a></li>';
-						}
-					} else { //  Not logged in.
-						echo '<li><a href="login.php" title="Login" id="menu">Login</a></li>
-				';
-				// <li><a href="register.php" title="Register for the Site"  id="menu">Register</a></li>
-				// <li><a href="forgot.php" title="Password Retrieval" id="menu">Retrieve Password</a></li>
-					}
-					?>
-					<li><a href="contact_us.php" title="Contact Us" id="menu">Contact Us</a></li>
-				</ul>
-			</nav>
-</header>
+				} else { //  Not logged in.
+					echo '<li><a href="login.php" title="Login" id="menu">Login</a></li>
+					<li><a href="register.php" title="Register" id="menu">Sign Up</a></li>';
+				}
+				?>
+				<li><a href="contact_us.php" title="Contact Us" id="menu">Contact Us</a></li>
+			</ul>
+		</nav>
+	</header>
 </body>
-		<!-- End of Header -->
+<!-- End of Header -->
