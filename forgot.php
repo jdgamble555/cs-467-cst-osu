@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		// Create a new, random password:
 		$p = substr(md5(uniqid(rand(), true)), 3, 15);
-		$ph = password_hash($p);
+		$ph = password_hash($p, PASSWORD_DEFAULT);
 
 		// Update the database:
 		$q = "UPDATE users SET pass='$ph' WHERE user_id=$uid LIMIT 1";
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
 
 			// Send an email:
-			$body = "Your password to log into <whatever site> has been temporarily changed to '$p'. Please log in using this password and this email address. Then you may change your password to something more familiar.";
+			$body = "Your password to log into Excellent Job has been temporarily changed to '$p'. Please log in using this password and this email address. Then you may change your password to something more familiar.";
 			mail($_POST['email'], 'Your temporary password.', $body, 'From: admin@sitename.com');
 
 			// Print a message and wrap up:
