@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			// Send an email:
 			$body = "Your password to log into Excellent Job has been temporarily changed to '$p'. Please log in using this password and this email address. Then you may change your password to something more familiar.";
-			mail($_POST['email'], 'Your temporary password.', $body, 'From: admin@sitename.com');
+			mail($_POST['email'], 'Your temporary password.', $body, 'From: gambljon@oregonstate.edu');
 
 			// Print a message and wrap up:
 			echo '<h3>Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link.</h3>';
