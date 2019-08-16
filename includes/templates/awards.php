@@ -13,7 +13,7 @@
         <?php
 
         // used inner join here with foreign key
-        $q = "SELECT awards.id, users.first_name, users.last_name, awards.award_type, DATE_FORMAT(awards.timestamp, '%Y/%m/%d') AS da FROM awards INNER JOIN users ON awards.receiver=users.user_id ORDER BY da ASC";
+        $q = "SELECT awards.id, users.first_name, users.last_name, users.email, awards.award_type, DATE_FORMAT(awards.timestamp, '%Y/%m/%d') AS da FROM awards INNER JOIN users ON awards.receiver=users.user_id ORDER BY da ASC";
         $r = @mysqli_query($dbc, $q);
 
         $bg = '#eeeeee'; // Set the initial background color.
@@ -33,9 +33,6 @@
 
         ?>
 
-
-
-
     </table>
 
 </div>
@@ -46,7 +43,7 @@
 
                 <?php
 
-                $q = "SELECT first_name, last_name, user_id FROM users";
+                $q = "SELECT first_name, last_name, email, user_id FROM users";
                 $r = @mysqli_query($dbc, $q);
 
                 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {

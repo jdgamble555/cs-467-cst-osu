@@ -36,11 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		} else { // If the query did not run OK.
 			echo '<p class="error">The user could not be deleted due to a system error.</p>'; // Public message.
-			echo '<p>' . mysqli_error($dbc) . '<br>Query: ' . $q . '</p>'; // Debugging message.
+			echo '<p class="center">' . mysqli_error($dbc) . '<br>Query: ' . $q . '</p>'; // Debugging message.
 		}
 
 	} else { // No confirmation of deletion.
-		echo '<p>The user has NOT been deleted.</p>';
+		echo '<p class="center">The user has NOT been deleted.</p>';
 	}
 
 } else { // Show the form.

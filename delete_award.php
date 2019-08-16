@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
 
 			// Print a message:
-			echo '<p>The award has been deleted.</p>';
+			echo '<p class="center">The award has been deleted.</p>';
 
 		} else { // If the query did not run OK.
 			echo '<p class="error">The award could not be deleted due to a system error.</p>'; // Public message.
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 
 	} else { // No confirmation of deletion.
-		echo '<p>The award has NOT been deleted.</p>';
+		echo '<p class="center">The award has NOT been deleted.</p>';
 	}
 
 } else { // Show the form.
